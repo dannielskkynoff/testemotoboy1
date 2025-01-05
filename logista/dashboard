@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Logista - Controle de Entregas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Painel do <span style="font-weight: bold;">Logista</span> - Controle de Entregas</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="slide-panel" class="slide-panel">
+            <span class="close-panel">&times;</span>
+            <h2>Solicitar Entrega</h2>
+            <form id="form-entrega">
+                <label for="nome">Nome *</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+
+                <label for="contato">Contato *</label>
+                <input type="tel" id="contato" name="contato" required><br><br>
+
+                <label for="bairro">Bairro *</label>
+                <input type="text" id="bairro" name="bairro" required><br><br>
+
+                <label for="rua">Rua *</label>
+                <input type="text" id="rua" name="rua" required><br><br>
+
+                <label for="numero">Número da Casa</label>
+                <input type="text" id="numero" name="numero"><br><br>
+
+                <label for="localizacao">Link da Localização</label>
+                <input type="url" id="localizacao" name="localizacao"><br><br>
+
+                <label for="observacao">Observação</label>
+                <textarea id="observacao" name="observacao"></textarea><br><br>
+
+                <button type="submit" class="btn-acao">Solicitar</button>
+            </form>
+        </div>
+
+        <main>
+            <button id="btn-chamar-entregador"><i class="fas fa-motorcycle"></i> Chamar Entregador</button>
+            <div class="status-container">
+                <section class="status-section" id="pendentes-section">
+                    <h2><i class="fas fa-clock"></i> Pendentes</h2>
+                    <div class="table-responsive">
+                        <table class="pedidos-table" id="pendentes-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Endereço</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendentes-tbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="status-section" id="aceitos-section">
+                    <h2><i class="fas fa-motorcycle"></i> A caminho</h2>
+                    <div class="table-responsive">
+                        <table class="pedidos-table" id="aceitos-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Endereço</th>
+                                    <th>Entregador</th>
+                                </tr>
+                            </thead>
+                            <tbody id="aceitos-tbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="status-section" id="entregues-section">
+                    <h2><i class="fas fa-check-circle"></i> Entregues</h2>
+                    <div class="table-responsive">
+                        <table class="pedidos-table" id="entregues-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Endereço</th>
+                                    <th>Data de Entrega</th>
+                                </tr>
+                            </thead>
+                            <tbody id="entregues-tbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Sistema de Motoboys</p>
+        </footer>
+    </div>
+    <script type="module" src="dashboard.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+
+</body>
+
+</html>
